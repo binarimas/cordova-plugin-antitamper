@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-antitamper" version="1.0.0">
+    <name>AntiTamperPlugin</name>
+    <description>APK Anti Tampering Detection Plugin</description>
+    <license>Open</license>
+    <keywords>antitamper</keywords>
+    <engines>
+      <engine name="cordova-android" version=">=3.0.0" />
+    </engines>
+    <js-module name="AntiTamperPlugin" src="www/antitamper.js">
+        <clobbers target="antitamper"/>
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AntiTamperPlugin" >
+                <param name="android-package" value="org.apache.cordova.antitamper.AntiTamperPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/AntiTamperPlugin.java" target-dir="src/org/apache/cordova/antitamper" />
+		<info>
+		   This plugin is used to detect any tampering in APK
+		</info>
+    </platform>
+
+</plugin>
